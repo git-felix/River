@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\OpenGL">
+      <UniqueIdentifier>{0ced5cc8-8b49-473c-b536-31ea0d17e216}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utils">
+      <UniqueIdentifier>{40dc004f-f50c-4e6c-a80f-53975671ef2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Images">
+      <UniqueIdentifier>{f6da6e54-8719-4548-8dcb-b84138de6ffd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders">
+      <UniqueIdentifier>{9c7b63f2-e2c7-41dc-a03c-57f955c21e5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utils\OpenGL_Material">
+      <UniqueIdentifier>{caf21fb9-3a9a-44e2-9bd2-4f6121dd948a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\Images\GrassDiffuse.png">
+      <Filter>Resource Files\Images</Filter>
+    </Image>
+    <Image Include="Resources\Images\GrassDistribution.png">
+      <Filter>Resource Files\Images</Filter>
+    </Image>
+    <Image Include="Resources\Images\TerrainDiffuse.png">
+      <Filter>Resource Files\Images</Filter>
+    </Image>
+    <Image Include="Resources\Images\TerrainHeightMap.png">
+      <Filter>Resource Files\Images</Filter>
+    </Image>
+    <Image Include="Resources\Images\WaterDiffuse.png">
+      <Filter>Resource Files\Images</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Headers\Utils\OpenGL_Material\Camera.h">
+      <Filter>Header Files\Utils\OpenGL_Material</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Utils\OpenGL_Material\FrameBuffer.h">
+      <Filter>Header Files\Utils\OpenGL_Material</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Utils\OpenGL_Material\Mesh.h">
+      <Filter>Header Files\Utils\OpenGL_Material</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Utils\OpenGL_Material\Shader.h">
+      <Filter>Header Files\Utils\OpenGL_Material</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Utils\OpenGL_Material\stb_image.h">
+      <Filter>Header Files\Utils\OpenGL_Material</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Utils\OpenGL_Material\Texture.h">
+      <Filter>Header Files\Utils\OpenGL_Material</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
