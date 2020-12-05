@@ -13,20 +13,26 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\OpenGL">
-      <UniqueIdentifier>{0ced5cc8-8b49-473c-b536-31ea0d17e216}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Utils">
-      <UniqueIdentifier>{40dc004f-f50c-4e6c-a80f-53975671ef2b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resource Files\Images">
       <UniqueIdentifier>{f6da6e54-8719-4548-8dcb-b84138de6ffd}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resource Files\Shaders">
       <UniqueIdentifier>{9c7b63f2-e2c7-41dc-a03c-57f955c21e5f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Utils\OpenGL_Material">
-      <UniqueIdentifier>{caf21fb9-3a9a-44e2-9bd2-4f6121dd948a}</UniqueIdentifier>
+    <Filter Include="Header Files\Scene_Objects">
+      <UniqueIdentifier>{6ce67751-84b9-436d-9b4a-b296b98fb783}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\utils">
+      <UniqueIdentifier>{40dc004f-f50c-4e6c-a80f-53975671ef2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\utils\view">
+      <UniqueIdentifier>{f62e5d9b-00a3-4793-ba51-69caadf77240}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\utils\stb">
+      <UniqueIdentifier>{15caa947-926a-4689-9112-9a40d3caab50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Scene_Objects\utils">
+      <UniqueIdentifier>{6f88f731-3bbe-4845-827e-e727bbf2bb28}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -52,23 +58,38 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Headers\Utils\OpenGL_Material\Camera.h">
-      <Filter>Header Files\Utils\OpenGL_Material</Filter>
+    <ClInclude Include="Headers\Utils\OpenGL_Material\stb\stb_image.h">
+      <Filter>Header Files\utils\stb</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Utils\OpenGL_Material\FrameBuffer.h">
-      <Filter>Header Files\Utils\OpenGL_Material</Filter>
+    <ClInclude Include="Headers\Utils\OpenGL_Material\stb\stb_image_write.h">
+      <Filter>Header Files\utils\stb</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Utils\OpenGL_Material\Mesh.h">
-      <Filter>Header Files\Utils\OpenGL_Material</Filter>
+    <ClInclude Include="Headers\Utils\OpenGL_Material\view\Camera.h">
+      <Filter>Header Files\utils\view</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Utils\OpenGL_Material\Shader.h">
-      <Filter>Header Files\Utils\OpenGL_Material</Filter>
+    <ClInclude Include="Headers\Utils\OpenGL_Material\view\Shader.h">
+      <Filter>Header Files\utils\view</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Utils\OpenGL_Material\stb_image.h">
-      <Filter>Header Files\Utils\OpenGL_Material</Filter>
+    <ClInclude Include="Headers\Utils\FrameBuffer.h">
+      <Filter>Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Utils\OpenGL_Material\Texture.h">
-      <Filter>Header Files\Utils\OpenGL_Material</Filter>
+    <ClInclude Include="Headers\Utils\Mesh.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Utils\OpenGL_Material\view\Image.h">
+      <Filter>Header Files\utils\view</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Scene_Objects\utils\Surface.h">
+      <Filter>Header Files\Scene_Objects\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Scene_Objects\utils\Point.h">
+      <Filter>Header Files\Scene_Objects\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Scene_Objects\utils\Vertex.h">
+      <Filter>Header Files\Scene_Objects\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Scene_Objects\utils\Texture.h">
+      <Filter>Header Files\Scene_Objects\utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

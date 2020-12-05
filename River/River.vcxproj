@@ -86,14 +86,15 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;_MBC5;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\OpenGL\glm;C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\OpenGL\glfw\Headers;C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\OpenGL\glew\Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\utils;C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers;C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\OpenGL\glm;C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\OpenGL\glfw\Headers;C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\OpenGL\glew\Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\OpenGL\glfw\glfw32_2015vc_lib;C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\OpenGL\glew\glew32_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -102,9 +103,9 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;_MBC5;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\OpenGL\glm;C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\OpenGL\glfw\Headers;C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\OpenGL\glew\Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\utils;C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers;C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\OpenGL\glm;C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\OpenGL\glfw\Headers;C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\OpenGL\glew\Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -112,6 +113,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\OpenGL\glfw\glfw32_2015vc_lib;C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\OpenGL\glew\glew32_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -153,12 +155,17 @@
     <Image Include="Resources\Images\WaterDiffuse.png" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Headers\Utils\OpenGL_Material\Camera.h" />
-    <ClInclude Include="Headers\Utils\OpenGL_Material\FrameBuffer.h" />
-    <ClInclude Include="Headers\Utils\OpenGL_Material\Mesh.h" />
-    <ClInclude Include="Headers\Utils\OpenGL_Material\Shader.h" />
-    <ClInclude Include="Headers\Utils\OpenGL_Material\stb_image.h" />
-    <ClInclude Include="Headers\Utils\OpenGL_Material\Texture.h" />
+    <ClInclude Include="Headers\Scene_Objects\utils\Point.h" />
+    <ClInclude Include="Headers\Scene_Objects\utils\Surface.h" />
+    <ClInclude Include="Headers\Scene_Objects\utils\Texture.h" />
+    <ClInclude Include="Headers\Scene_Objects\utils\Vertex.h" />
+    <ClInclude Include="Headers\Utils\FrameBuffer.h" />
+    <ClInclude Include="Headers\Utils\Mesh.h" />
+    <ClInclude Include="Headers\Utils\OpenGL_Material\stb\stb_image.h" />
+    <ClInclude Include="Headers\Utils\OpenGL_Material\stb\stb_image_write.h" />
+    <ClInclude Include="Headers\Utils\OpenGL_Material\view\Camera.h" />
+    <ClInclude Include="Headers\Utils\OpenGL_Material\view\Image.h" />
+    <ClInclude Include="Headers\Utils\OpenGL_Material\view\Shader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,3 +1,5 @@
 ﻿  main.cpp
-MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol _main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
-C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\Debug\River.exe : fatal error LNK1120: 1 unresolved externals
+C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\Utils\OpenGL_Material\Image.h(69,10): warning C4473: 'printf' : not enough arguments passed for format string
+C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\Utils\OpenGL_Material\Image.h(69,10): message : placeholders and their parameters expect 4 variadic arguments, but 3 were provided
+C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\Utils\OpenGL_Material\Image.h(69,10): message : the missing variadic argument 4 is required by format string '%d'
+  River.vcxproj -> C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\Debug\River.exe
