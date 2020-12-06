@@ -19,9 +19,6 @@
     <Filter Include="Resource Files\Shaders">
       <UniqueIdentifier>{9c7b63f2-e2c7-41dc-a03c-57f955c21e5f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Scene_Objects">
-      <UniqueIdentifier>{6ce67751-84b9-436d-9b4a-b296b98fb783}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\utils">
       <UniqueIdentifier>{40dc004f-f50c-4e6c-a80f-53975671ef2b}</UniqueIdentifier>
     </Filter>
@@ -31,8 +28,14 @@
     <Filter Include="Header Files\utils\stb">
       <UniqueIdentifier>{15caa947-926a-4689-9112-9a40d3caab50}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Scene_Objects\utils">
+    <Filter Include="Header Files\Scene">
+      <UniqueIdentifier>{6ce67751-84b9-436d-9b4a-b296b98fb783}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Scene\utils">
       <UniqueIdentifier>{6f88f731-3bbe-4845-827e-e727bbf2bb28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Scene\Objects">
+      <UniqueIdentifier>{daa5dcd0-4bb7-4d45-93fe-3beaeae3397e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -58,41 +61,44 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Headers\Utils\OpenGL_Material\stb\stb_image.h">
-      <Filter>Header Files\utils\stb</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers\Utils\OpenGL_Material\stb\stb_image_write.h">
-      <Filter>Header Files\utils\stb</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers\Utils\OpenGL_Material\view\Camera.h">
-      <Filter>Header Files\utils\view</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers\Utils\OpenGL_Material\view\Shader.h">
-      <Filter>Header Files\utils\view</Filter>
-    </ClInclude>
     <ClInclude Include="Headers\Utils\FrameBuffer.h">
       <Filter>Header Files\utils</Filter>
     </ClInclude>
     <ClInclude Include="Headers\Utils\Mesh.h">
       <Filter>Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Utils\OpenGL_Material\view\Image.h">
+    <ClInclude Include="Headers\Scene\utils\Point.h">
+      <Filter>Header Files\Scene\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Scene\utils\Surface.h">
+      <Filter>Header Files\Scene\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Scene\utils\Texture.h">
+      <Filter>Header Files\Scene\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Scene\utils\Texture_Coordinates.h">
+      <Filter>Header Files\Scene\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Scene\utils\Vertex.h">
+      <Filter>Header Files\Scene\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Scene\objects\River.h">
+      <Filter>Header Files\Scene\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\utils\stb\stb_image.h">
+      <Filter>Header Files\utils\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\utils\stb\stb_image_write.h">
+      <Filter>Header Files\utils\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\utils\view\Camera.h">
       <Filter>Header Files\utils\view</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Scene_Objects\utils\Surface.h">
-      <Filter>Header Files\Scene_Objects\utils</Filter>
+    <ClInclude Include="Headers\utils\view\Image.h">
+      <Filter>Header Files\utils\view</Filter>
     </ClInclude>
-    <ClInclude Include="Headers\Scene_Objects\utils\Point.h">
-      <Filter>Header Files\Scene_Objects\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers\Scene_Objects\utils\Vertex.h">
-      <Filter>Header Files\Scene_Objects\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers\Scene_Objects\utils\Texture.h">
-      <Filter>Header Files\Scene_Objects\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="Headers\Scene_Objects\utils\Texture_Coordinates.h">
-      <Filter>Header Files\Scene_Objects\utils</Filter>
+    <ClInclude Include="Headers\utils\view\Shader.h">
+      <Filter>Header Files\utils\view</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

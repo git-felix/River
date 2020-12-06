@@ -155,18 +155,19 @@
     <Image Include="Resources\Images\WaterDiffuse.png" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Headers\Scene_Objects\utils\Point.h" />
-    <ClInclude Include="Headers\Scene_Objects\utils\Surface.h" />
-    <ClInclude Include="Headers\Scene_Objects\utils\Texture.h" />
-    <ClInclude Include="Headers\Scene_Objects\utils\Texture_Coordinates.h" />
-    <ClInclude Include="Headers\Scene_Objects\utils\Vertex.h" />
+    <ClInclude Include="Headers\Scene\objects\River.h" />
+    <ClInclude Include="Headers\Scene\utils\Point.h" />
+    <ClInclude Include="Headers\Scene\utils\Surface.h" />
+    <ClInclude Include="Headers\Scene\utils\Texture.h" />
+    <ClInclude Include="Headers\Scene\utils\Texture_Coordinates.h" />
+    <ClInclude Include="Headers\Scene\utils\Vertex.h" />
     <ClInclude Include="Headers\Utils\FrameBuffer.h" />
     <ClInclude Include="Headers\Utils\Mesh.h" />
-    <ClInclude Include="Headers\Utils\OpenGL_Material\stb\stb_image.h" />
-    <ClInclude Include="Headers\Utils\OpenGL_Material\stb\stb_image_write.h" />
-    <ClInclude Include="Headers\Utils\OpenGL_Material\view\Camera.h" />
-    <ClInclude Include="Headers\Utils\OpenGL_Material\view\Image.h" />
-    <ClInclude Include="Headers\Utils\OpenGL_Material\view\Shader.h" />
+    <ClInclude Include="Headers\utils\stb\stb_image.h" />
+    <ClInclude Include="Headers\utils\stb\stb_image_write.h" />
+    <ClInclude Include="Headers\utils\view\Camera.h" />
+    <ClInclude Include="Headers\utils\view\Image.h" />
+    <ClInclude Include="Headers\utils\view\Shader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

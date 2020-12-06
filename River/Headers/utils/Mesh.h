@@ -13,7 +13,7 @@ public:
 		glBufferData(GL_ARRAY_BUFFER, count * sizeof(float), vertices, GL_STATIC_DRAW);
 		vertexCount = count;
 	}
-
+	
 	~Mesh() {
 		layout.clear();
 	}

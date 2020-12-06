@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <vector>
 
 // image read
 #define STB_IMAGE_IMPLEMENTATION
@@ -20,13 +21,13 @@ public:
 		pixels(nullptr)
 	{ }
 	// contructor with given filepath
-	Image(const char* filepath)
+	Image(const char* filepath) :
+		width(0),
+		height(0),
+		channel(-1),
+		size(width * height * 3),
+		pixels(nullptr)
 	{
-		width = 0;
-		height = 0;
-		channel = -1;
-		size = width * height * 3;
-		pixels = nullptr;
 		load(filepath);
 	}
 	// destructor
@@ -50,9 +51,14 @@ public:
 	{
 		return size;
 	}
-	unsigned char* get_pixels() const
+	std::vector<unsigned short int> get_pixels() const
 	{
-		return pixels;
+		std::vector<unsigned short int> pixels_to_process;
+		for (int i = 0; i < size; i += 3)
+		{
+			pixels_to_process.push_back(static_cast<unsigned short int>(pixels[i]));
+		}
+		return pixels_to_process;
 	}
 	/* customization functions */
 
