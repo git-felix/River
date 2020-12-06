@@ -3,7 +3,7 @@
 #include <vector>
 
 #include "Point.h"
-#include "Texture.h"
+#include "Texture_Coordinates.h"
 
 
 class Vertex
@@ -12,14 +12,14 @@ public:
 	// default constructor
 	Vertex() :
 		coordinate(),
-		texture(nullptr)
+		texture_uv()
 	{
 
 	}
 
-	Vertex(Point p, const std::string& path) :
+	Vertex(Point p, Texture_Coordinates tex_uv ) :
 		coordinate(p),
-		texture(path)
+		texture_uv(tex_uv)
 	{
 
 	}
@@ -29,9 +29,9 @@ public:
 	{
 		coordinate = coord;
 	}
-	void set_texture(Texture tex)
+	void set_Texture_Coordinates(Texture_Coordinates tex)
 	{
-		texture = tex;
+		texture_uv = tex;
 	}
 
 	// getters
@@ -39,23 +39,29 @@ public:
 	{
 		return coordinate;
 	}
-	Texture get_texture() const
+	Texture_Coordinates get_texture() const
 	{
-		return texture;
+		return texture_uv;
 	}
 	const std::vector<float> get_data()
 	{
-		// coordiante
+		// coordiantes
 		std::vector<float> data = coordinate.get_data();
+		// texture coordinates
+		std::vector<float> tex = texture_uv.get_data();
 		
-		//std::vector<float> tex = texture.get_data();
-		
-		// Texture axis
-		//data.insert(data.end(), tex.begin(), tex.end());
+		data.insert(data.end(), tex.begin(), tex.end());
 		return data;
+	}
+
+
+	friend std::ostream& operator<<(std::ostream& os, Vertex vertex)
+	{
+		os << "[" << vertex.get_coord() << vertex.get_texture() << "]";
+		return os;
 	}
 
 private:
 	Point coordinate;
-	Texture texture;
+	Texture_Coordinates texture_uv;
 };

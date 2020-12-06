@@ -91,5 +91,8 @@
     <ClInclude Include="Headers\Scene_Objects\utils\Texture.h">
       <Filter>Header Files\Scene_Objects\utils</Filter>
     </ClInclude>
+    <ClInclude Include="Headers\Scene_Objects\utils\Texture_Coordinates.h">
+      <Filter>Header Files\Scene_Objects\utils</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

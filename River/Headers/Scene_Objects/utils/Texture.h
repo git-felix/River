@@ -27,7 +27,9 @@ public:
 		glBindTexture(GL_TEXTURE_2D, 0);
 
 		if (m_localBuffer)
+		{
 			stbi_image_free(m_localBuffer);
+		}
 	}
 
 	~Texture()
@@ -46,13 +48,13 @@ public:
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	int GetWidth() const 
+	int GetWidth() const
 	{
-		return m_Width; 
+		return m_Width;
 	}
-	int GetHeight() const 
+	int GetHeight() const
 	{
-		return m_Height;  
+		return m_Height;
 	}
 	unsigned char* get_local_buffer() const
 	{

@@ -88,12 +88,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLEW_STATIC;_MBC5;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\utils;C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers;C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\OpenGL\glm;C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\OpenGL\glfw\Headers;C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\OpenGL\glew\Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Headers\utils;Headers;Headers\OpenGL\glm;Headers\OpenGL\glfw\Headers;Headers\OpenGL\glew\Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\OpenGL\glfw\glfw32_2015vc_lib;C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\OpenGL\glew\glew32_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>Headers\OpenGL\glfw\glfw32_2015vc_lib;Headers\OpenGL\glew\glew32_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glew32s.lib;glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -105,14 +105,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLEW_STATIC;_MBC5;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\utils;C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers;C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\OpenGL\glm;C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\OpenGL\glfw\Headers;C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\OpenGL\glew\Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Headers\utils;Headers;Headers\OpenGL\glm;Headers\OpenGL\glfw\Headers;Headers\OpenGL\glew\Headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\OpenGL\glfw\glfw32_2015vc_lib;C:\Users\bazoy\OneDrive\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Headers\OpenGL\glew\glew32_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>Headers\OpenGL\glfw\glfw32_2015vc_lib;Headers\OpenGL\glew\glew32_lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glew32s.lib;glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -158,6 +158,7 @@
     <ClInclude Include="Headers\Scene_Objects\utils\Point.h" />
     <ClInclude Include="Headers\Scene_Objects\utils\Surface.h" />
     <ClInclude Include="Headers\Scene_Objects\utils\Texture.h" />
+    <ClInclude Include="Headers\Scene_Objects\utils\Texture_Coordinates.h" />
     <ClInclude Include="Headers\Scene_Objects\utils\Vertex.h" />
     <ClInclude Include="Headers\Utils\FrameBuffer.h" />
     <ClInclude Include="Headers\Utils\Mesh.h" />

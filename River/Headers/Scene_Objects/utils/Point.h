@@ -59,11 +59,36 @@ public:
 		return data;
 	}
 
-	void operator = (const Point& p)
+	void operator=(const Point& p)
 	{
 		this->X = p.get_X();
 		this->Y = p.get_Y();
 		this->Z = p.get_Z();
+	}
+
+	// cross product
+	Point operator*( const Point& point )
+	{
+		const float x = (Y * point.get_Z()) - (Z * point.get_Y());
+		const float y = (Z * point.get_X()) - (X * point.get_Z());
+		const float z = (X * point.get_Y()) - (Y * point.get_X());
+		return Point(x, y, z);
+	}
+
+	Point operator-(const Point& point)
+	{
+		const float x = X - point.get_X();
+		const float y = Y - point.get_Y();
+		const float z = Z - point.get_Z();
+		return Point(x, y, z);
+	}
+
+	friend std::ostream& operator<<(std::ostream& os, Point point)
+	{
+		os << "[" << "X:" << point.get_X() <<
+			" Y:" << point.get_Y() <<
+			" Z:" << point.get_Z() << "]";
+		return os;
 	}
 
 private:
