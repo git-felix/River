@@ -156,11 +156,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\Scene\objects\River.h" />
+    <ClInclude Include="Headers\Scene\Scene.h" />
     <ClInclude Include="Headers\Scene\utils\Point.h" />
     <ClInclude Include="Headers\Scene\utils\Surface.h" />
     <ClInclude Include="Headers\Scene\utils\Texture.h" />
     <ClInclude Include="Headers\Scene\utils\Texture_Coordinates.h" />
     <ClInclude Include="Headers\Scene\utils\Vertex.h" />
+    <ClInclude Include="Headers\Scene\utils\Window.h" />
     <ClInclude Include="Headers\Utils\FrameBuffer.h" />
     <ClInclude Include="Headers\Utils\Mesh.h" />
     <ClInclude Include="Headers\utils\stb\stb_image.h" />
@@ -168,6 +170,10 @@
     <ClInclude Include="Headers\utils\view\Camera.h" />
     <ClInclude Include="Headers\utils\view\Image.h" />
     <ClInclude Include="Headers\utils\view\Shader.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shaders\Water\Water_Fragment.shader" />
+    <None Include="Resources\Shaders\Water\Water_Vertex.shader" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

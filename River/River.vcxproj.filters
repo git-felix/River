@@ -37,6 +37,12 @@
     <Filter Include="Header Files\Scene\Objects">
       <UniqueIdentifier>{daa5dcd0-4bb7-4d45-93fe-3beaeae3397e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Shaders\Water">
+      <UniqueIdentifier>{6505aa2c-c255-4398-8ad6-b80efed1b2fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Shaders\Terrain">
+      <UniqueIdentifier>{2656445f-4501-4174-9355-8a62c1dc6281}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\main.cpp">
@@ -100,5 +106,19 @@
     <ClInclude Include="Headers\utils\view\Shader.h">
       <Filter>Header Files\utils\view</Filter>
     </ClInclude>
+    <ClInclude Include="Headers\Scene\Scene.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Scene\utils\Window.h">
+      <Filter>Header Files\Scene\utils</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shaders\Water\Water_Fragment.shader">
+      <Filter>Resource Files\Shaders\Water</Filter>
+    </None>
+    <None Include="Resources\Shaders\Water\Water_Vertex.shader">
+      <Filter>Resource Files\Shaders\Water</Filter>
+    </None>
   </ItemGroup>
 </Project>

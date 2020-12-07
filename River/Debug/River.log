@@ -1,7 +1,9 @@
 ﻿  main.cpp
-C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\utils\view\Image.h(69,10): warning C4473: 'printf' : not enough arguments passed for format string
-C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\utils\view\Image.h(69,10): message : placeholders and their parameters expect 4 variadic arguments, but 3 were provided
-C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\utils\view\Image.h(69,10): message : the missing variadic argument 4 is required by format string '%d'
-C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\utils\Surface.h(66,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\utils\Surface.h(68,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\utils\Surface.h(103,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\utils\view\Image.h(75,10): warning C4473: 'printf' : not enough arguments passed for format string
+C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\utils\view\Image.h(75,10): message : placeholders and their parameters expect 4 variadic arguments, but 3 were provided
+C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\utils\view\Image.h(75,10): message : the missing variadic argument 4 is required by format string '%d'
+C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\Scene.h(41,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\Scene.h(106,37): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\Scene.h(106,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   River.vcxproj -> C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Debug\River.exe

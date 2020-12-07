@@ -52,7 +52,6 @@ public:
 
 		return stringStream.str();
 	}
-
 	GLuint  CompileShader(unsigned int type, const std::string& source) {
 		unsigned int id = glCreateShader(type);
 		const char* src = source.c_str();
@@ -73,7 +72,6 @@ public:
 		}
 		return id;
 	}
-
 	GLuint CreateShader(const std::string& vertexShader, const std::string& geometryShader, const std::string& fragmentShader)
 	{
 		GLuint program = glCreateProgram();
@@ -140,10 +138,6 @@ public:
 
 private:
 	GLuint programId;
-
-	std::string ParseShader(std::string filepath);
-	GLuint CompileShader(unsigned int type, const std::string& source);
-	GLuint CreateShader(const std::string& vertexShader, const std::string& geometryShader,const std::string& fragmentShader);
 };
 
 #endif

@@ -80,9 +80,9 @@ private:
 
 	void print_vertices()
 	{
-		for (int i = 0; i < vertical_vertices; ++i)
+		for (unsigned int i = 0; i < vertical_vertices; ++i)
 		{
-			for (int j = 0; j < horizontal_vertices; ++j)
+			for (unsigned int j = 0; j < horizontal_vertices; ++j)
 			{
 				std::cout << "<" << i * horizontal_vertices << "," << j << ">\t" << "["
 					<< coordinates[i*horizontal_vertices + j].get_coord().get_X() << " "
@@ -95,6 +95,17 @@ private:
 	void set_scale(float s)
 	{
 		scale = s;
+	}
+
+	std::vector<float> get_data()
+	{
+		std::vector<float> result;
+		for (int i = 0; i < coordinates.size(); i++)
+		{
+			std::vector<float> temp = coordinates[i].get_data();
+			result.insert(result.end(), temp.begin(), temp.end());
+		}
+		return result;
 	}
 
 private:
