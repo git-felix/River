@@ -10,7 +10,7 @@ public:
 	River() :
 		image("./Resources/Images/WaterDiffuse.png"),
 		texture("./Resources/Images/WaterDiffuse.png"),
-		surface(100, 100, 10),
+		surface(10, 10, 5),
 		shader("./Resources/Shaders/Water/Water_Vertex.shader", "",
 			   "./Resources/Shaders/Water/Water_Fragment.shader"),
 		mesh(&surface.get_data().front(), surface.get_data().size())

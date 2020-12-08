@@ -107,6 +107,18 @@ private:
 		{
 			camera.ProcessKeyboard(RIGHT, deltaTime);
 		}
+
+		// "space" for going up
+		if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
+		{
+			camera.Position[1] += 0.01f;
+		}
+
+		// "C" for going down
+		if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS)
+		{
+			camera.Position[1] -= 0.01f;
+		}
 	}
 	// process the input from the mouse and send them to camera
 	void mouse_events()
