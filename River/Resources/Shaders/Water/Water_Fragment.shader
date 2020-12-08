@@ -7,7 +7,10 @@ in vec2 TexCoord;
 uniform sampler2D ourTexture;
 uniform float deltaTime;
 
+
 void main()
 {
-    FragColor = texture(ourTexture, TexCoord + deltaTime);
+	vec4 _texture = texture(ourTexture, TexCoord + deltaTime);
+	_texture[3] = 0.7f;
+	FragColor = _texture;
 }

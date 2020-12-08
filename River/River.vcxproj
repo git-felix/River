@@ -156,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\Scene\objects\River.h" />
+    <ClInclude Include="Headers\Scene\objects\Terrain.h" />
     <ClInclude Include="Headers\Scene\Scene.h" />
     <ClInclude Include="Headers\Scene\utils\Point.h" />
     <ClInclude Include="Headers\Scene\utils\Surface.h" />
@@ -172,6 +173,8 @@
     <ClInclude Include="Headers\utils\view\Shader.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Shaders\Terrain\Terrain_Fragment.shader" />
+    <None Include="Resources\Shaders\Terrain\Terrain_Vertex.shader" />
     <None Include="Resources\Shaders\Water\Water_Fragment.shader" />
     <None Include="Resources\Shaders\Water\Water_Vertex.shader" />
   </ItemGroup>

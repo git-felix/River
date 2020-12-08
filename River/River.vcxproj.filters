@@ -112,6 +112,9 @@
     <ClInclude Include="Headers\Scene\utils\Window.h">
       <Filter>Header Files\Scene\utils</Filter>
     </ClInclude>
+    <ClInclude Include="Headers\Scene\objects\Terrain.h">
+      <Filter>Header Files\Scene\Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Shaders\Water\Water_Fragment.shader">
@@ -119,6 +122,12 @@
     </None>
     <None Include="Resources\Shaders\Water\Water_Vertex.shader">
       <Filter>Resource Files\Shaders\Water</Filter>
+    </None>
+    <None Include="Resources\Shaders\Terrain\Terrain_Fragment.shader">
+      <Filter>Resource Files\Shaders\Terrain</Filter>
+    </None>
+    <None Include="Resources\Shaders\Terrain\Terrain_Vertex.shader">
+      <Filter>Resource Files\Shaders\Terrain</Filter>
     </None>
   </ItemGroup>
 </Project>

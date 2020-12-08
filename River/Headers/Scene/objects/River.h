@@ -8,7 +8,6 @@ class River
 {
 public:
 	River(int vertical_count, int horizontal_count, float size) :
-		image("./Resources/Images/WaterDiffuse.png"),
 		texture("./Resources/Images/WaterDiffuse.png"),
 		surface(vertical_count, horizontal_count, size),
 		shader("./Resources/Shaders/Water/Water_Vertex.shader", "",
@@ -53,14 +52,8 @@ private:
 	}
 
 private:
-	Image image;
-	const std::string image_path;
 	Texture texture;
 	Surface surface;
-
 	Shader shader;
-	const std::string fragment_shader;
-	const std::string vertex_shader;
-
 	Mesh mesh;
 };

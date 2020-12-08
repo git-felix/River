@@ -4,12 +4,12 @@
 
 #include "Vertex.h"
 #include "Texture.h"
+#include "utils/view/Image.h"
 
 class Surface
 {
 public:
 	Surface(int vertical_vert, int horiz_vert, float s) :
-		scale(1.0f),
 		size(s),
 		horizontal_vertices(horiz_vert),
 		vertical_vertices(vertical_vert)
@@ -18,15 +18,29 @@ public:
 		generate_index_buffer();
 	}
 
+	Surface(int vertical_vert, int horiz_vert, float s, Image image) :
+		size(s),
+		horizontal_vertices(horiz_vert),
+		vertical_vertices(vertical_vert)
+	{
+		generate_indexed_triangle_strip_plane();
+		update_height(image.get_pixels());
+		generate_index_buffer();
+	}
 
-	void update_height(std::vector<unsigned short int> pixels)
+
+	void update_height(std::vector<float> pixels)
 	{
 		unsigned int pixels_size = pixels.size();
 		unsigned int step = pixels_size / coordinates.size();
 		unsigned int pixel_position = 0;
 		for (unsigned int i = 0; i < coordinates.size(); i++)
 		{
-			coordinates[i].get_coord().set_Y(pixels[pixel_position] * scale);
+			Vertex temp_vertex = coordinates[i];
+			Point temp_point = temp_vertex.get_coord();
+			temp_point.set_Y(((pixels[pixel_position] - 100) * scale));
+			temp_vertex.set_coordinate(temp_point);
+			coordinates[i] = temp_vertex;
 			pixel_position += step;
 		}
 	}
@@ -51,7 +65,7 @@ public:
 				float x = j;
 				float z = i;
 				Point point(x, y, z);
-				// TODO: generate text_uv's later
+
 				Texture_Coordinates text_uv(S_pos, T_pos);
 				S_pos += texture_step_S;
 
@@ -83,38 +97,38 @@ public:
 private:
 	void generate_index_buffer()
 	{
-		for (int i = 0; i < vertical_vertices - 1; i++)
-		{
-			int index_low = i * horizontal_vertices;
-			int index_high = (i + 1) * horizontal_vertices;
-
-			for (int j = 0; j < horizontal_vertices; j++)
-			{
-				index_buffer.push_back(index_low + j);
-				index_buffer.push_back(index_high + j);
-			}
-			if (i + 1 >= vertical_vertices - 1)
-				continue;
-			// degenerate
-			index_buffer.push_back(index_high + horizontal_vertices - 1);
-			index_buffer.push_back(index_low + horizontal_vertices);
-		}
-
-		//// plane indices generation
-		//int index = 0;
-		//for (unsigned int i = 0; i < vertical_vertices - 1; ++i)
+		//for (unsigned int i = 0; i < vertical_vertices - 1; i++)
 		//{
-		//	for (unsigned int j = 0; j < horizontal_vertices; ++j, ++index)
+		//	int index_low = i * horizontal_vertices;
+		//	int index_high = (i + 1) * horizontal_vertices;
+
+		//	for (unsigned int j = 0; j < horizontal_vertices; j++)
 		//	{
-		//		index_buffer.push_back(index);
-		//		index_buffer.push_back(index + horizontal_vertices);
+		//		index_buffer.push_back(index_low + j);
+		//		index_buffer.push_back(index_high + j);
 		//	}
-		//	if (i + 1 < vertical_vertices - 1)
-		//	{
-		//		index_buffer.push_back(index_buffer.back());
-		//		index_buffer.push_back(index_buffer.at(index_buffer.size() - (2 * horizontal_vertices)));
-		//	}
+		//	if (i + 1 >= vertical_vertices - 1)
+		//		continue;
+		//	// degenerate
+		//	index_buffer.push_back(index_high + horizontal_vertices - 1);
+		//	index_buffer.push_back(index_low + horizontal_vertices);
 		//}
+
+		// plane indices generation
+		int index = 0;
+		for (unsigned int i = 0; i < vertical_vertices - 1; ++i)
+		{
+			for (unsigned int j = 0; j < horizontal_vertices; ++j, ++index)
+			{
+				index_buffer.push_back(index);
+				index_buffer.push_back(index + horizontal_vertices);
+			}
+			if (i + 1 < vertical_vertices - 1)
+			{
+				index_buffer.push_back(index_buffer.back());
+				index_buffer.push_back(index_buffer.at(index_buffer.size() - (2 * horizontal_vertices)));
+			}
+		}
  }
 
 	void print_vertices()
@@ -131,13 +145,14 @@ private:
 			}
 		}
 	}
+
 	void set_scale(float s)
 	{
 		scale = s;
 	}
 
 private:
-	float scale;
+	float scale = 0.01f;
 	float size;
 	unsigned int horizontal_vertices;
 	unsigned int vertical_vertices;

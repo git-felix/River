@@ -1,9 +1,15 @@
 #pragma once
 
+// objects
 #include "objects/River.h"
+#include "objects/Terrain.h"
+
+// utils
 #include "utils/view/Camera.h"
 #include "utils/Window.h"
 #include "utils/Mesh.h"
+
+// opengl
 #include "GLFW/glfw3.h"
 
 
@@ -12,7 +18,8 @@ class Scene
 public:
 	Scene() :
 		window_helper(1980, 1020),
-		river(10, 10, 100)
+		river(50, 50, 10),
+		terrain(50, 50, 10)
 	{
 		window = window_helper.get_window();
 		mouse_lastX = 0;
@@ -34,10 +41,24 @@ public:
 	void render()
 	{
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-		//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 		glfwSetCursorPos(window, window_helper.get_width() / 2, window_helper.get_height() / 2);
 		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+
+		//TESTING
+		//glEnable(GL_CULL_FACE);
+		//glCullFace(GL_BACK);
+		//glFrontFace(GL_CCW);
+
+		// depth handling
+		glClearDepth(-1);
+		glEnable(GL_DEPTH_TEST);
+		glDepthFunc(GL_GREATER);
+		//glDepthMask(GL_TRUE);
 
 		float lastFrame = 0.0f;
 		while(!glfwWindowShouldClose(window))
@@ -51,10 +72,7 @@ public:
 			update_camera(deltaTime);
 			glm::mat4 mvp = update_mvp();
 
-
-			river.update_shaders("mvp", mvp);
-			river.update_shaders("deltaTime", currentFrame / flow_speed );
-			river.draw();
+			update_objects(mvp, currentFrame);
 
 			// Swap front and back buffers
 			glfwSwapBuffers(window);
@@ -66,6 +84,26 @@ public:
 
 
 private:
+
+	void update_objects(glm::mat4 mvp, float time)
+	{
+		update_terrain(mvp);
+		update_river(mvp, time);
+	}
+
+	void update_terrain(glm::mat4 mvp)
+	{
+		terrain.update_shaders("mvp", mvp);
+		terrain.draw();
+	}
+
+	void update_river(glm::mat4 mvp, float time)
+	{
+		river.update_shaders("mvp", mvp);
+		river.update_shaders("deltaTime", time / flow_speed);
+		river.draw();
+	}
+
 	void update_camera(float deltaTime)
 	{
 		keyboard_events(deltaTime);
@@ -116,6 +154,23 @@ private:
 		{
 			camera.Position[1] -= 0.01f;
 		}
+
+
+		// switch polygon mode to LINE
+		if (glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS)
+		{
+			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		}
+
+		// switch polygon mode to FILL
+		if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS)
+		{
+			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		}
+
+
+
+
 	}
 	// process the input from the mouse and send them to camera
 	void mouse_events()
@@ -146,7 +201,7 @@ private:
 	Window window_helper;
 	// objects 
 	River river;
-	//Terrain terrain;
+	Terrain terrain;
 	//Grass grass;
 
 	// utils

@@ -51,12 +51,12 @@ public:
 	{
 		return size;
 	}
-	std::vector<unsigned short int> get_pixels() const
+	std::vector<float> get_pixels() const
 	{
-		std::vector<unsigned short int> pixels_to_process;
+		std::vector<float> pixels_to_process;
 		for (int i = 0; i < size; i += 3)
 		{
-			pixels_to_process.push_back(static_cast<unsigned short int>(pixels[i]));
+			pixels_to_process.push_back(static_cast<float>(pixels[i]));
 		}
 		return pixels_to_process;
 	}

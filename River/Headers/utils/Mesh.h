@@ -7,6 +7,10 @@
 class Mesh
 {
 public:
+	Mesh()
+	{ }
+
+
 	Mesh(GLfloat* vertices, int count) {
 		glGenBuffers(1, &vboId);
 		glBindBuffer(GL_ARRAY_BUFFER, vboId);
@@ -47,7 +51,7 @@ public:
 private:
 	void GenerateLayout() {
 		GLintptr vertexOffset = 0;
-		for (int i = 0; i < layout.size(); i++) {
+		for (unsigned int i = 0; i < layout.size(); i++) {
 			glEnableVertexAttribArray(i);
 			glVertexAttribPointer(i, layout[i], GL_FLOAT, GL_FALSE, stride * sizeof(float), (GLvoid*)(vertexOffset));
 			vertexOffset += layout[i] * sizeof(float);
