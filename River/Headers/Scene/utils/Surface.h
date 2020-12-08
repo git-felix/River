@@ -48,7 +48,9 @@ public:
 		{
 			for (float j = 0; j <= size; j += step_up)
 			{
-				Point point(j, y, i);
+				float x = j;
+				float z = i;
+				Point point(x, z, y);
 				// TODO: generate text_uv's later
 				Texture_Coordinates text_uv(S_pos, T_pos);
 				S_pos += texture_step_S;
@@ -59,6 +61,22 @@ public:
 			T_pos += texture_step_T;
 			S_pos = 0.0f;
 		}
+	}
+
+	std::vector<float> get_data() const
+	{
+		std::vector<float> result;
+		for (unsigned int i = 0; i < coordinates.size(); i++)
+		{
+			std::vector<float> temp = coordinates[i].get_data();
+			result.insert(result.end(), temp.begin(), temp.end());
+		}
+		return result;
+	}
+
+	std::vector<int> get_index_buffer() const 
+	{
+		return index_buffer;
 	}
 
 private:
@@ -95,17 +113,6 @@ private:
 	void set_scale(float s)
 	{
 		scale = s;
-	}
-
-	std::vector<float> get_data()
-	{
-		std::vector<float> result;
-		for (int i = 0; i < coordinates.size(); i++)
-		{
-			std::vector<float> temp = coordinates[i].get_data();
-			result.insert(result.end(), temp.begin(), temp.end());
-		}
-		return result;
 	}
 
 private:

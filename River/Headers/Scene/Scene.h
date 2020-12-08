@@ -3,7 +3,7 @@
 #include "objects/River.h"
 #include "utils/view/Camera.h"
 #include "utils/Window.h"
-
+#include "utils/Mesh.h"
 #include "GLFW/glfw3.h"
 
 
@@ -11,7 +11,7 @@ class Scene
 {
 public:
 	Scene() :
-		window_helper(1880, 980),
+		window_helper(1800, 980),
 		river()
 	{
 		window = window_helper.get_window();
@@ -35,6 +35,7 @@ public:
 
 	void render()
 	{
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 		while(!glfwWindowShouldClose(window))
 		{
 			float lastFrame = 0;
@@ -46,7 +47,7 @@ public:
 			glm::mat4 mvp = update_mvp();
 			river.update_shaders("mvp", mvp);
 
-
+			river.draw();
 
 			// Swap front and back buffers
 			glfwSwapBuffers(window);
@@ -108,11 +109,16 @@ private:
 
 
 private:
+	// OPENGL
 	GLFWwindow* window;
 	Window window_helper;
+	// objects 
 	River river;
-	// TODO: Terrain
 	//Terrain terrain;
+	//Grass grass;
+
+	// utils
 	Camera camera;
+	//Mesh mesh;
 };
 

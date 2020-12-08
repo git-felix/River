@@ -43,7 +43,7 @@ public:
 	{
 		return texture_uv;
 	}
-	const std::vector<float> get_data()
+	std::vector<float> get_data() const
 	{
 		// coordiantes
 		std::vector<float> data = coordinate.get_data();

@@ -23,15 +23,6 @@ public:
 		stride += element;
 	}
 
-	void GenerateLayout() {
-		GLintptr vertexOffset = 0 ;
-		for (int i = 0; i < layout.size(); i++) {
-			glEnableVertexAttribArray(i);
-			glVertexAttribPointer(i, layout[i], GL_FLOAT, false, stride * sizeof(float), (GLvoid*)(vertexOffset));
-			vertexOffset += layout[i] * sizeof(float);
-		}
-	}
-
 	void Draw() {
 		glBindBuffer(GL_ARRAY_BUFFER, vboId);
 		GenerateLayout();
@@ -54,6 +45,15 @@ public:
 	}
 
 private:
+	void GenerateLayout() {
+		GLintptr vertexOffset = 0;
+		for (int i = 0; i < layout.size(); i++) {
+			glEnableVertexAttribArray(i);
+			glVertexAttribPointer(i, layout[i], GL_FLOAT, false, stride * sizeof(float), (GLvoid*)(vertexOffset));
+			vertexOffset += layout[i] * sizeof(float);
+		}
+	}
+
 	int stride;
 	GLuint vboId;
 	GLuint vaoId;
@@ -62,7 +62,6 @@ private:
 	std::vector<int> layout;
 	int vertexCount;
 	int indexCount;
-	void GenerateLayout();
 };
 
 #endif
