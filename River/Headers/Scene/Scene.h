@@ -40,6 +40,15 @@ public:
 	void render()
 	{
 		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
+		glfwSetCursorPos(window, window_helper.get_width() / 2, window_helper.get_height() / 2);
+		//glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
+		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+		//To warp the cursor to a screen position
+		//glutWarpPointer(x, y);
+		//glfwSetMousePos(x, y);
+
+
 		float lastFrame = 0.0f;
 		while(!glfwWindowShouldClose(window))
 		{	

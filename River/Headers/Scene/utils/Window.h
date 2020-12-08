@@ -8,15 +8,26 @@
 class Window
 {
 public:
-	Window(int width, int height)
+	Window(int wid, int hei) :
+		width(wid),
+		height(hei)
 	{
-		initialize_window(width, height);
+		initialize_window(wid, hei);
 	}
-
 
 	GLFWwindow* get_window() const 
 	{
 		return window;
+	}
+
+	float get_width() const
+	{
+		return width;
+	}
+
+	float get_height() const
+	{
+		return height;
 	}
 
 private:
@@ -25,7 +36,7 @@ private:
 		/* Initialize the library */
 		if (!glfwInit()) { return; }
 		/* Create a windowed mode window and its OpenGL context */
-		window = glfwCreateWindow(width, height, "River", NULL, NULL);
+		window = glfwCreateWindow(1980, 1020, "River", glfwGetPrimaryMonitor(), NULL);
 		if (!window)
 		{
 			glfwTerminate();
@@ -46,5 +57,7 @@ private:
 	}
 
 private:
+	float width;
+	float height;
 	GLFWwindow* window;
 };
