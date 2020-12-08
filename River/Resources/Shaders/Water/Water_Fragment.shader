@@ -1,14 +1,13 @@
 #version 330 core
+out vec4 FragColor;
 
-out vec4 color;
-in vec4 var_color;
+in vec3 ourColor;
+in vec2 TexCoord;
 
-uniform vec4 u_Color;
-
+uniform sampler2D ourTexture;
+uniform float deltaTime;
 
 void main()
 {
-	color = vec4(0.0f, 0.7f, 0.7f, 1.0f);
-	//color = var_color;
-	//discard;
-};
+    FragColor = texture(ourTexture, TexCoord + deltaTime);
+}

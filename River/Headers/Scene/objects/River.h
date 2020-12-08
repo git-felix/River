@@ -7,19 +7,20 @@
 class River
 {
 public:
-	River() :
+	River(int vertical_count, int horizontal_count, float size) :
 		image("./Resources/Images/WaterDiffuse.png"),
 		texture("./Resources/Images/WaterDiffuse.png"),
-		surface(10, 10, 5),
+		surface(vertical_count, horizontal_count, size),
 		shader("./Resources/Shaders/Water/Water_Vertex.shader", "",
-			   "./Resources/Shaders/Water/Water_Fragment.shader"),
-		mesh(&surface.get_data().front(), surface.get_data().size())
+			"./Resources/Shaders/Water/Water_Fragment.shader"),
+		mesh(&surface.get_data().front(), surface.get_data().size()  )
 	{
 		setup_mesh();
 	}
 
 	void draw()
 	{
+		texture.Bind(1);
 		mesh.DrawElements();
 	}
 
@@ -27,6 +28,13 @@ public:
 	{
 		shader.bind();
 		shader.SetMat4(name, mat);
+		//shader.unbind();
+	}
+
+	void update_shaders(const std::string& name, float value)
+	{
+		//shader.bind();
+		shader.SetFloat(name, value);
 		//shader.unbind();
 	}
 	

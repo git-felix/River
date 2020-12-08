@@ -36,7 +36,9 @@ private:
 		/* Initialize the library */
 		if (!glfwInit()) { return; }
 		/* Create a windowed mode window and its OpenGL context */
-		window = glfwCreateWindow(1980, 1020, "River", glfwGetPrimaryMonitor(), NULL);
+		window = glfwCreateWindow(width, height, "River", glfwGetPrimaryMonitor(), NULL);
+		//window = glfwCreateWindow(width, height, "River", NULL, NULL);
+
 		if (!window)
 		{
 			glfwTerminate();

@@ -11,8 +11,8 @@ class Scene
 {
 public:
 	Scene() :
-		window_helper(1800, 980),
-		river()
+		window_helper(1980, 1020),
+		river(10, 10, 100)
 	{
 		window = window_helper.get_window();
 		mouse_lastX = 0;
@@ -29,25 +29,15 @@ public:
 		return mvp;
 	}
 
-	void update_camera(float deltaTime)
-	{
-		keyboard_events(deltaTime);
-		mouse_events();
-	}
-
 
 
 	void render()
 	{
-		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 		glfwSetCursorPos(window, window_helper.get_width() / 2, window_helper.get_height() / 2);
-		//glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-		//To warp the cursor to a screen position
-		//glutWarpPointer(x, y);
-		//glfwSetMousePos(x, y);
-
 
 		float lastFrame = 0.0f;
 		while(!glfwWindowShouldClose(window))
@@ -60,8 +50,10 @@ public:
 
 			update_camera(deltaTime);
 			glm::mat4 mvp = update_mvp();
-			river.update_shaders("mvp", mvp);
 
+
+			river.update_shaders("mvp", mvp);
+			river.update_shaders("deltaTime", currentFrame / flow_speed );
 			river.draw();
 
 			// Swap front and back buffers
@@ -74,6 +66,11 @@ public:
 
 
 private:
+	void update_camera(float deltaTime)
+	{
+		keyboard_events(deltaTime);
+		mouse_events();
+	}
 	// process the input from keyboard and send them to camera
 	void keyboard_events(float deltaTime)
 	{
@@ -114,8 +111,8 @@ private:
 			camera.Position[1] += 0.01f;
 		}
 
-		// "C" for going down
-		if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS)
+		// "left ctrl" for going down
+		if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS)
 		{
 			camera.Position[1] -= 0.01f;
 		}
@@ -134,8 +131,6 @@ private:
 
 		mouse_lastX = xpos;
 		mouse_lastY = ypos;
-
-		std::cout << "X: " << xpos << "\tY:" << ypos << std::endl;
 
 		// send them to camera to update the view of the camera
 		camera.ProcessMouseMovement(offset_X, offset_Y);
@@ -158,6 +153,8 @@ private:
 	Camera camera;
 	int mouse_lastX;
 	int mouse_lastY;
-	//Mesh mesh;
+
+	float flow_speed = 15.0f;
+
 };
 

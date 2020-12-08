@@ -1,14 +1,15 @@
 #version 330 core
+layout(location = 0) in vec3 aPos;
+layout(location = 1) in vec2 aTexCoord;
 
-layout(location = 0) in vec4 position;
-layout(location = 1) in vec4 color;
+out vec2 TexCoord;
 
-out vec4 var_color;
 uniform mat4 mvp;
 
 void main()
 {
-	var_color = color;
-	gl_Position = mvp * position;
-};
-
+    //gl_Position = vec4(aPos, 1.0);
+    gl_Position = mvp * vec4(aPos, 1.0);
+    //TexCoord = aTexCoord;
+	TexCoord = aTexCoord;
+}

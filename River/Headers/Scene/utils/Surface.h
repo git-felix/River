@@ -8,7 +8,7 @@
 class Surface
 {
 public:
-	Surface(int horiz_vert, int vertical_vert, float s) :
+	Surface(int vertical_vert, int horiz_vert, float s) :
 		scale(1.0f),
 		size(s),
 		horizontal_vertices(horiz_vert),
@@ -74,6 +74,7 @@ public:
 		return result;
 	}
 
+
 	std::vector<int> get_index_buffer() const 
 	{
 		return index_buffer;
@@ -82,19 +83,39 @@ public:
 private:
 	void generate_index_buffer()
 	{
-		// plane indices generation
-		int index = 0;
-		for (unsigned int i = 0; i < vertical_vertices - 1; ++i)
+		for (int i = 0; i < vertical_vertices - 1; i++)
 		{
-			for (unsigned int j = 0; j < horizontal_vertices; ++j, ++index)
+			int index_low = i * horizontal_vertices;
+			int index_high = (i + 1) * horizontal_vertices;
+
+			for (int j = 0; j < horizontal_vertices; j++)
 			{
-				index_buffer.push_back(index);
-				index_buffer.push_back(index + horizontal_vertices);
+				index_buffer.push_back(index_low + j);
+				index_buffer.push_back(index_high + j);
 			}
-			index_buffer.push_back(index_buffer.back());
-			index_buffer.push_back(index_buffer.at(index_buffer.size() - (2 * horizontal_vertices)));
+			if (i + 1 >= vertical_vertices - 1)
+				continue;
+			// degenerate
+			index_buffer.push_back(index_high + horizontal_vertices - 1);
+			index_buffer.push_back(index_low + horizontal_vertices);
 		}
-	}
+
+		//// plane indices generation
+		//int index = 0;
+		//for (unsigned int i = 0; i < vertical_vertices - 1; ++i)
+		//{
+		//	for (unsigned int j = 0; j < horizontal_vertices; ++j, ++index)
+		//	{
+		//		index_buffer.push_back(index);
+		//		index_buffer.push_back(index + horizontal_vertices);
+		//	}
+		//	if (i + 1 < vertical_vertices - 1)
+		//	{
+		//		index_buffer.push_back(index_buffer.back());
+		//		index_buffer.push_back(index_buffer.at(index_buffer.size() - (2 * horizontal_vertices)));
+		//	}
+		//}
+ }
 
 	void print_vertices()
 	{

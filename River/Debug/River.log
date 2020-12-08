@@ -1,13 +1,19 @@
 ﻿  main.cpp
+C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\utils\Surface.h(86,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\utils\Surface.h(91,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\utils\Surface.h(96,14): warning C4018: '>=': signed/unsigned mismatch
 C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\utils\view\Image.h(75,10): warning C4473: 'printf' : not enough arguments passed for format string
 C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\utils\view\Image.h(75,10): message : placeholders and their parameters expect 4 variadic arguments, but 3 were provided
 C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\utils\view\Image.h(75,10): message : the missing variadic argument 4 is required by format string '%d'
 C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\utils\Mesh.h(50,21): warning C4018: '<': signed/unsigned mismatch
 C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\utils\Window.h(12,8): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
 C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\utils\Window.h(13,9): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\Scene.h(55,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\Scene.h(45,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\Scene.h(131,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\Scene.h(132,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\Scene.h(133,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\Scene.h(134,17): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
 C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\Scene.h(135,17): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\Scene.h(136,17): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Debug\vc120.pdb'; linking object as if no debug info
   River.vcxproj -> C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Debug\River.exe

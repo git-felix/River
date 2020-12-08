@@ -49,7 +49,7 @@ private:
 		GLintptr vertexOffset = 0;
 		for (int i = 0; i < layout.size(); i++) {
 			glEnableVertexAttribArray(i);
-			glVertexAttribPointer(i, layout[i], GL_FLOAT, false, stride * sizeof(float), (GLvoid*)(vertexOffset));
+			glVertexAttribPointer(i, layout[i], GL_FLOAT, GL_FALSE, stride * sizeof(float), (GLvoid*)(vertexOffset));
 			vertexOffset += layout[i] * sizeof(float);
 		}
 	}
