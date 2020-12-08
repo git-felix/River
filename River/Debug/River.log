@@ -3,8 +3,9 @@ C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\Ri
 C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\utils\view\Image.h(75,10): message : placeholders and their parameters expect 4 variadic arguments, but 3 were provided
 C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\utils\view\Image.h(75,10): message : the missing variadic argument 4 is required by format string '%d'
 C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\utils\Mesh.h(50,21): warning C4018: '<': signed/unsigned mismatch
-C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\objects\River.h(17,1): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\Scene.h(42,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\Scene.h(107,37): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\Scene.h(107,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\Scene.h(46,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\Scene.h(111,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\Scene.h(112,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\Scene.h(114,17): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\Scene.h(115,17): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   River.vcxproj -> C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Debug\River.exe

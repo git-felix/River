@@ -10,7 +10,7 @@ public:
 	River() :
 		image("./Resources/Images/WaterDiffuse.png"),
 		texture("./Resources/Images/WaterDiffuse.png"),
-		surface(10, 10, 0.9),
+		surface(100, 100, 10),
 		shader("./Resources/Shaders/Water/Water_Vertex.shader", "",
 			   "./Resources/Shaders/Water/Water_Fragment.shader"),
 		mesh(&surface.get_data().front(), surface.get_data().size())
@@ -26,10 +26,8 @@ public:
 	void update_shaders(const std::string& name, const glm::mat4& mat)
 	{
 		shader.bind();
-
 		shader.SetMat4(name, mat);
-
-		shader.unbind();
+		//shader.unbind();
 	}
 	
 	Surface get_surface() const

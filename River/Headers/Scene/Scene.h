@@ -15,13 +15,16 @@ public:
 		river()
 	{
 		window = window_helper.get_window();
+		mouse_lastX = 0;
+		mouse_lastY = 0;
 	}
 
 	glm::mat4 update_mvp()
 	{
-		glm::mat4 view = glm::lookAt(camera.Position, camera.Position + camera.Front, camera.Up);
-		glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)(1), 0.1f, 100.0f);		//perspective view
+		glm::mat4 view = camera.GetViewMatrix();
+		glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), 1.0f, 0.1f, 100.0f);		//perspective view
 		glm::mat4 model = glm::mat4(1.0f);
+		//river.update_shaders("model", model);
 		glm::mat4 mvp = projection * view * model;
 		return mvp;
 	}
@@ -33,15 +36,18 @@ public:
 	}
 
 
+
 	void render()
 	{
 		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		float lastFrame = 0.0f;
 		while(!glfwWindowShouldClose(window))
-		{
-			float lastFrame = 0;
+		{	
 			float currentFrame = glfwGetTime();
 			float deltaTime = currentFrame - lastFrame;
 			lastFrame = currentFrame;
+
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 			update_camera(deltaTime);
 			glm::mat4 mvp = update_mvp();
@@ -98,14 +104,24 @@ private:
 	{
 		double xpos;
 		double ypos;
+
 		// gets mouse x and y positions
 		glfwGetCursorPos(window, &xpos, &ypos);
+
+		float offset_X = mouse_lastX - xpos;
+		float offset_Y = mouse_lastY - ypos;
+
+		mouse_lastX = xpos;
+		mouse_lastY = ypos;
 
 		std::cout << "X: " << xpos << "\tY:" << ypos << std::endl;
 
 		// send them to camera to update the view of the camera
-		camera.ProcessMouseMovement(xpos, ypos);
+		camera.ProcessMouseMovement(offset_X, offset_Y);
 	}
+
+
+
 
 
 private:
@@ -119,6 +135,8 @@ private:
 
 	// utils
 	Camera camera;
+	int mouse_lastX;
+	int mouse_lastY;
 	//Mesh mesh;
 };
 

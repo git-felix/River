@@ -50,7 +50,7 @@ public:
 			{
 				float x = j;
 				float z = i;
-				Point point(x, z, y);
+				Point point(x, y, z);
 				// TODO: generate text_uv's later
 				Texture_Coordinates text_uv(S_pos, T_pos);
 				S_pos += texture_step_S;

@@ -11,3 +11,4 @@ void main()
 	var_color = color;
 	gl_Position = mvp * position;
 };
+
