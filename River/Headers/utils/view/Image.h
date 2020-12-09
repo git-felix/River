@@ -56,7 +56,25 @@ public:
 		std::vector<float> pixels_to_process;
 		for (int i = 0; i < size; i += 3)
 		{
-			pixels_to_process.push_back(static_cast<float>(pixels[i]));
+			pixels_to_process.push_back(( static_cast<float>(pixels[i])  
+										+ static_cast<float>(pixels[i + 1])  
+										+ static_cast<float>(pixels[i + 2])) / 3);
+		}
+		return pixels_to_process;
+	}
+
+
+	std::vector<std::vector<float>> get_improved_pixels() const
+	{
+		std::vector<std::vector<float>> pixels_to_process;
+		for (int i = 0; i < height; i++)
+		{
+			std::vector<float> temp;
+			for (int j = 0; j < width; j++)
+			{
+				temp.push_back(static_cast<float>(pixels[i * width + j + 3]));
+			}
+			pixels_to_process.push_back(temp);
 		}
 		return pixels_to_process;
 	}

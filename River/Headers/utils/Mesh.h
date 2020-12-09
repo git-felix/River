@@ -11,15 +11,21 @@ public:
 	{ }
 
 
-	Mesh(GLfloat* vertices, int count) {
-		glGenBuffers(1, &vboId);
-		glBindBuffer(GL_ARRAY_BUFFER, vboId);
-		glBufferData(GL_ARRAY_BUFFER, count * sizeof(float), vertices, GL_STATIC_DRAW);
-		vertexCount = count;
+	Mesh(GLfloat* vertices, int count) 
+	{
+		setup(vertices, count);
 	}
 	
 	~Mesh() {
 		layout.clear();
+	}
+
+	void setup(GLfloat* vertices, int count)
+	{
+		glGenBuffers(1, &vboId);
+		glBindBuffer(GL_ARRAY_BUFFER, vboId);
+		glBufferData(GL_ARRAY_BUFFER, count * sizeof(float), vertices, GL_STATIC_DRAW);
+		vertexCount = count;
 	}
 
 	void AddLayout(int element) {
@@ -30,7 +36,7 @@ public:
 	void Draw() {
 		glBindBuffer(GL_ARRAY_BUFFER, vboId);
 		GenerateLayout();
-		glDrawArrays(GL_TRIANGLES, 0, vertexCount/ stride);
+		glDrawArrays(GL_TRIANGLES, 0,/* vertexCount/ stride*/ 100);
 	}
 
 	void BindIndexBuffer(GLint* indexBuffer, GLint indCount) {

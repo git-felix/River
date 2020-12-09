@@ -38,18 +38,32 @@ public:
 		{
 			Vertex temp_vertex = coordinates[i];
 			Point temp_point = temp_vertex.get_coord();
-			temp_point.set_Y(((pixels[pixel_position] - 100) * scale));
+			temp_point.set_Y((((pixels[pixel_position] / 255)) * scale) - (scale / 1.25) );
 			temp_vertex.set_coordinate(temp_point);
 			coordinates[i] = temp_vertex;
 			pixel_position += step;
 		}
+
+		//unsigned int step_right = pixels.size() / horizontal_vertices;
+		//unsigned int step_up = pixels[0].size() / vertical_vertices;
+		//int index = 0;
+		//for (int i = 0; i < pixels.size(); i += step_up)
+		//{
+		//	for (int j = 0; j < pixels[i].size(); j += step_right)
+		//	{
+		//		Vertex temp_vertex = coordinates[index];
+		//		Point temp_point = temp_vertex.get_coord();
+		//		temp_point.set_Y((((pixels[i][j] / 255)) * scale) - (scale / 2) );
+		//		temp_vertex.set_coordinate(temp_point);
+		//		coordinates[index] = temp_vertex;
+		//		index++;
+		//	}
+		//}
 	}
 
 	void generate_indexed_triangle_strip_plane()
 	{
 		// steps calculation
-		float step_right = size / (horizontal_vertices - 1.0f);
-		float step_up = size / (vertical_vertices - 1.0f);
 		float texture_step_S = 1.0f / (horizontal_vertices - 1.0f);
 		float texture_step_T = 1.0f / (vertical_vertices - 1.0f);
 
@@ -58,12 +72,15 @@ public:
 
 		// plane coordinates generation
 		float y = 0;
-		for (float i = 0; i <= size; i += step_right)
+		for (float i = 0; i < vertical_vertices; i++)
 		{
-			for (float j = 0; j <= size; j += step_up)
+			float zRatio = i / (horizontal_vertices - 1);
+			for(float j = 0; j < horizontal_vertices; j++)
 			{
-				float x = j;
-				float z = i;
+				float xRatio = j / (vertical_vertices - 1);
+				float x = size * xRatio;
+				float z = size * zRatio;
+
 				Point point(x, y, z);
 
 				Texture_Coordinates text_uv(S_pos, T_pos);
@@ -97,37 +114,21 @@ public:
 private:
 	void generate_index_buffer()
 	{
-		//for (unsigned int i = 0; i < vertical_vertices - 1; i++)
-		//{
-		//	int index_low = i * horizontal_vertices;
-		//	int index_high = (i + 1) * horizontal_vertices;
-
-		//	for (unsigned int j = 0; j < horizontal_vertices; j++)
-		//	{
-		//		index_buffer.push_back(index_low + j);
-		//		index_buffer.push_back(index_high + j);
-		//	}
-		//	if (i + 1 >= vertical_vertices - 1)
-		//		continue;
-		//	// degenerate
-		//	index_buffer.push_back(index_high + horizontal_vertices - 1);
-		//	index_buffer.push_back(index_low + horizontal_vertices);
-		//}
-
-		// plane indices generation
-		int index = 0;
-		for (unsigned int i = 0; i < vertical_vertices - 1; ++i)
+		for (unsigned int i = 0; i < vertical_vertices - 1; i++)
 		{
-			for (unsigned int j = 0; j < horizontal_vertices; ++j, ++index)
+			int index_low = i * horizontal_vertices;
+			int index_high = (i + 1) * horizontal_vertices;
+
+			for (unsigned int j = 0; j < horizontal_vertices; j++)
 			{
-				index_buffer.push_back(index);
-				index_buffer.push_back(index + horizontal_vertices);
+				index_buffer.push_back(index_low + j);
+				index_buffer.push_back(index_high + j);
 			}
-			if (i + 1 < vertical_vertices - 1)
-			{
-				index_buffer.push_back(index_buffer.back());
-				index_buffer.push_back(index_buffer.at(index_buffer.size() - (2 * horizontal_vertices)));
-			}
+			if (i + 1 >= vertical_vertices - 1)
+				continue;
+			// degenerate
+			index_buffer.push_back(index_high + horizontal_vertices - 1);
+			index_buffer.push_back(index_low + horizontal_vertices);
 		}
  }
 
@@ -152,7 +153,7 @@ private:
 	}
 
 private:
-	float scale = 0.01f;
+	float scale = 5.0f;
 	float size;
 	unsigned int horizontal_vertices;
 	unsigned int vertical_vertices;

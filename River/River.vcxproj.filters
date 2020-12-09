@@ -43,6 +43,9 @@
     <Filter Include="Resource Files\Shaders\Terrain">
       <UniqueIdentifier>{2656445f-4501-4174-9355-8a62c1dc6281}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Shaders\Grass">
+      <UniqueIdentifier>{9e5ac89b-e560-4e97-8572-20afe63773e2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\main.cpp">
@@ -115,6 +118,15 @@
     <ClInclude Include="Headers\Scene\objects\Terrain.h">
       <Filter>Header Files\Scene\Objects</Filter>
     </ClInclude>
+    <ClInclude Include="Headers\Scene\utils\RayCaster.h">
+      <Filter>Header Files\Scene\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Scene\utils\Ray.h">
+      <Filter>Header Files\Scene\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\Scene\objects\Grass.h">
+      <Filter>Header Files\Scene\Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Shaders\Water\Water_Fragment.shader">
@@ -128,6 +140,9 @@
     </None>
     <None Include="Resources\Shaders\Terrain\Terrain_Vertex.shader">
       <Filter>Resource Files\Shaders\Terrain</Filter>
+    </None>
+    <None Include="Resources\Shaders\Water\Water_Geometry.shader">
+      <Filter>Resource Files\Shaders\Water</Filter>
     </None>
   </ItemGroup>
 </Project>

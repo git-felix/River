@@ -1,12 +1,1 @@
-﻿  main.cpp
-C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\utils\view\Image.h(75,10): warning C4473: 'printf' : not enough arguments passed for format string
-C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\utils\view\Image.h(75,10): message : placeholders and their parameters expect 4 variadic arguments, but 3 were provided
-C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\utils\view\Image.h(75,10): message : the missing variadic argument 4 is required by format string '%d'
-C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\utils\Window.h(12,8): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\utils\Window.h(13,9): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\Scene.h(66,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\Scene.h(184,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\Scene.h(185,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\Scene.h(187,17): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\River\Headers\Scene\Scene.h(188,17): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-  River.vcxproj -> C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Debug\River.exe
+﻿  River.vcxproj -> C:\Users\bazoy\Documents\AUA_Stuff\Semester_7\Computer Graphics\Project\River\River\Debug\River.exe

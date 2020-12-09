@@ -10,10 +10,11 @@ public:
 	River(int vertical_count, int horizontal_count, float size) :
 		texture("./Resources/Images/WaterDiffuse.png"),
 		surface(vertical_count, horizontal_count, size),
-		shader("./Resources/Shaders/Water/Water_Vertex.shader", "",
+		shader("./Resources/Shaders/Water/Water_Vertex.shader", "./Resources/Shaders/Water/Water_Geometry.shader",
 			"./Resources/Shaders/Water/Water_Fragment.shader"),
-		mesh(&surface.get_data().front(), surface.get_data().size()  )
+		mesh()
 	{
+		mesh.setup(&surface.get_data().front(), surface.get_data().size());
 		setup_mesh();
 	}
 

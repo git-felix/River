@@ -3,6 +3,7 @@
 // objects
 #include "objects/River.h"
 #include "objects/Terrain.h"
+#include "objects/Grass.h"
 
 // utils
 #include "utils/view/Camera.h"
@@ -18,8 +19,9 @@ class Scene
 public:
 	Scene() :
 		window_helper(1980, 1020),
-		river(50, 50, 10),
-		terrain(50, 50, 10)
+		river(40, 40, 25),
+		terrain(20, 20, 25)
+		//grass(20, 20, 25)
 	{
 		window = window_helper.get_window();
 		mouse_lastX = 0;
@@ -42,23 +44,13 @@ public:
 	{
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
-		glfwSetCursorPos(window, window_helper.get_width() / 2, window_helper.get_height() / 2);
-		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
-
-		//TESTING
-		//glEnable(GL_CULL_FACE);
-		//glCullFace(GL_BACK);
-		//glFrontFace(GL_CCW);
-
-		// depth handling
-		glClearDepth(-1);
 		glEnable(GL_DEPTH_TEST);
-		glDepthFunc(GL_GREATER);
-		//glDepthMask(GL_TRUE);
+		glDepthFunc(GL_LESS);
+
 
 		float lastFrame = 0.0f;
 		while(!glfwWindowShouldClose(window))
@@ -89,6 +81,7 @@ private:
 	{
 		update_terrain(mvp);
 		update_river(mvp, time);
+		//update_grass();
 	}
 
 	void update_terrain(glm::mat4 mvp)
@@ -102,6 +95,13 @@ private:
 		river.update_shaders("mvp", mvp);
 		river.update_shaders("deltaTime", time / flow_speed);
 		river.draw();
+	}
+
+	void update_grass()
+	{
+		//glm::mat4 model = glm::mat4(1.0f);
+		//grass.update_shaders("model", model);
+		//grass.draw();
 	}
 
 	void update_camera(float deltaTime)
@@ -168,9 +168,11 @@ private:
 			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 		}
 
-
-
-
+		// switch cursor mode
+		if (glfwGetKey(window, GLFW_KEY_M) == GLFW_PRESS)
+		{
+			change_cursor_mode();
+		}
 	}
 	// process the input from the mouse and send them to camera
 	void mouse_events()
@@ -191,7 +193,19 @@ private:
 		camera.ProcessMouseMovement(offset_X, offset_Y);
 	}
 
-
+	void change_cursor_mode()
+	{
+		cursor_enabled = !cursor_enabled;
+		if (cursor_enabled)
+		{
+			//glfwSetCursorPos(window, window_helper.get_width() / 2, window_helper.get_height() / 2);
+			glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+		}
+		else
+		{
+			glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+		}
+	}
 
 
 
@@ -203,11 +217,13 @@ private:
 	River river;
 	Terrain terrain;
 	//Grass grass;
+	//Grass grass;
 
 	// utils
 	Camera camera;
 	int mouse_lastX;
 	int mouse_lastY;
+	bool cursor_enabled = false;
 
 	float flow_speed = 15.0f;
 
