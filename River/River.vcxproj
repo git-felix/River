@@ -176,6 +176,7 @@
     <ClInclude Include="Headers\utils\view\Shader.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Shaders\Grass\Grass_Geometry.shader" />
     <None Include="Resources\Shaders\Terrain\Terrain_Fragment.shader" />
     <None Include="Resources\Shaders\Terrain\Terrain_Vertex.shader" />
     <None Include="Resources\Shaders\Water\Water_Fragment.shader" />

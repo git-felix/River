@@ -79,7 +79,7 @@ private:
 
 	void update_objects(glm::mat4 mvp, float time)
 	{
-		update_terrain(mvp);
+		//update_terrain(mvp);
 		update_river(mvp, time);
 		//update_grass();
 	}
@@ -172,6 +172,13 @@ private:
 		if (glfwGetKey(window, GLFW_KEY_M) == GLFW_PRESS)
 		{
 			change_cursor_mode();
+		}
+
+		// ripple
+		if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
+		{
+			glm::vec3 center = glm::vec3(10, 0, 10);
+			river.update_shaders("ripple_center", center);
 		}
 	}
 	// process the input from the mouse and send them to camera

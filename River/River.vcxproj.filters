@@ -144,5 +144,8 @@
     <None Include="Resources\Shaders\Water\Water_Geometry.shader">
       <Filter>Resource Files\Shaders\Water</Filter>
     </None>
+    <None Include="Resources\Shaders\Grass\Grass_Geometry.shader">
+      <Filter>Resource Files\Shaders\Grass</Filter>
+    </None>
   </ItemGroup>
 </Project>
