@@ -38,27 +38,11 @@ public:
 		{
 			Vertex temp_vertex = coordinates[i];
 			Point temp_point = temp_vertex.get_coord();
-			temp_point.set_Y((((pixels[pixel_position] / 255)) * scale) - (scale / 1.25) );
+			temp_point.set_Y((((pixels[pixel_position] / 255)) * scale) - (scale / 1.75) );
 			temp_vertex.set_coordinate(temp_point);
 			coordinates[i] = temp_vertex;
 			pixel_position += step;
 		}
-
-		//unsigned int step_right = pixels.size() / horizontal_vertices;
-		//unsigned int step_up = pixels[0].size() / vertical_vertices;
-		//int index = 0;
-		//for (int i = 0; i < pixels.size(); i += step_up)
-		//{
-		//	for (int j = 0; j < pixels[i].size(); j += step_right)
-		//	{
-		//		Vertex temp_vertex = coordinates[index];
-		//		Point temp_point = temp_vertex.get_coord();
-		//		temp_point.set_Y((((pixels[i][j] / 255)) * scale) - (scale / 2) );
-		//		temp_vertex.set_coordinate(temp_point);
-		//		coordinates[index] = temp_vertex;
-		//		index++;
-		//	}
-		//}
 	}
 
 	void generate_indexed_triangle_strip_plane()
@@ -153,7 +137,7 @@ private:
 	}
 
 private:
-	float scale = 5.0f;
+	float scale = 7.25f;
 	float size;
 	unsigned int horizontal_vertices;
 	unsigned int vertical_vertices;

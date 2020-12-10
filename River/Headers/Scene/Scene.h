@@ -19,13 +19,14 @@ class Scene
 public:
 	Scene() :
 		window_helper(1980, 1020),
-		river(40, 40, 25),
-		terrain(20, 20, 25)
+		river(40, 80, 25),
+		terrain(20, 40, 25)
 		//grass(20, 20, 25)
 	{
 		window = window_helper.get_window();
 		mouse_lastX = 0;
 		mouse_lastY = 0;
+		river_flow = glm::vec3(0, 0, 20);
 	}
 
 	glm::mat4 update_mvp()
@@ -61,10 +62,10 @@ public:
 
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-			update_camera(deltaTime);
+			update_camera(deltaTime, currentFrame);
 			glm::mat4 mvp = update_mvp();
 
-			update_objects(mvp, currentFrame);
+			update_objects(mvp, currentFrame, currentFrame);
 
 			// Swap front and back buffers
 			glfwSwapBuffers(window);
@@ -77,10 +78,10 @@ public:
 
 private:
 
-	void update_objects(glm::mat4 mvp, float time)
+	void update_objects(glm::mat4 mvp, float deltaTime, float currentTime)
 	{
-		//update_terrain(mvp);
-		update_river(mvp, time);
+		update_terrain(mvp);
+		update_river(mvp, deltaTime, currentTime);
 		//update_grass();
 	}
 
@@ -90,10 +91,13 @@ private:
 		terrain.draw();
 	}
 
-	void update_river(glm::mat4 mvp, float time)
+	void update_river(glm::mat4 mvp, float deltaTime, float currentTime)
 	{
 		river.update_shaders("mvp", mvp);
-		river.update_shaders("deltaTime", time / flow_speed);
+		river.update_shaders("deltaTime", deltaTime / flow_speed);
+		river.update_shaders("currentTime", currentTime);
+		river.update_shaders("river_flow", river_flow);
+
 		river.draw();
 	}
 
@@ -104,13 +108,13 @@ private:
 		//grass.draw();
 	}
 
-	void update_camera(float deltaTime)
+	void update_camera(float deltaTime, float currentTime)
 	{
-		keyboard_events(deltaTime);
+		keyboard_events(deltaTime, currentTime);
 		mouse_events();
 	}
 	// process the input from keyboard and send them to camera
-	void keyboard_events(float deltaTime)
+	void keyboard_events(float deltaTime, float currentTime)
 	{
 		// closes the window
 		if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
@@ -177,8 +181,9 @@ private:
 		// ripple
 		if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
 		{
-			glm::vec3 center = glm::vec3(10, 0, 10);
+			glm::vec3 center = glm::vec3(20, 0, 5);
 			river.update_shaders("ripple_center", center);
+			river.update_shaders("stopTime", currentTime + 2.0f);
 		}
 	}
 	// process the input from the mouse and send them to camera
@@ -231,6 +236,9 @@ private:
 	int mouse_lastX;
 	int mouse_lastY;
 	bool cursor_enabled = false;
+
+	glm::vec3 center;
+	glm::vec3 river_flow;
 
 	float flow_speed = 15.0f;
 

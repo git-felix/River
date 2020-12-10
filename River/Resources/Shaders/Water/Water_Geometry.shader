@@ -13,25 +13,42 @@ uniform mat4 mvp;
 out vec2 TexCoord;
 
 uniform vec3 ripple_center;
-uniform float deltaTime;
+uniform vec3 river_flow;
 
+
+uniform float currentTime;
+uniform float deltaTime;
+uniform float stopTime;
+
+float getRemainder(float num, float divisor)
+{
+	return (num - divisor * (num / divisor));
+}
 
 void generate(int index)
 {
 	// if if close to coordinate radius
 	vec4 updated_coord = gs_in[index].position;
 
-	float radius = 2;
-	float distance = distance(ripple_center, vec3(updated_coord[0], updated_coord[1], updated_coord[2]));
-	
-	if( distance <= radius ){
-		float y = distance + (deltaTime * 20);
-		if (y > 180)
+	float flow_distance = distance(river_flow, vec3(updated_coord[0], updated_coord[1], updated_coord[2]));
+
+	float y = flow_distance + (currentTime);
+	updated_coord[1] = sin(y * 0.75f);
+
+	vec3 center = ripple_center;
+
+	float ripple_distance = distance(center, vec3(updated_coord[0], updated_coord[1], updated_coord[2]));
+	float radius = 3;
+
+	if (currentTime < stopTime)
+	{
+		if (ripple_distance < radius)
 		{
-			y = 180;
+			float deltaY = ripple_distance + (currentTime);
+			updated_coord[1] += sin(deltaY * 3);
 		}
-		updated_coord[1] = sin(y);
 	}
+
 
 	//updated_coord[1] += deltaTime;
 	gl_Position = mvp * updated_coord;

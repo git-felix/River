@@ -28,21 +28,16 @@ public:
 	{
 		shader.bind();
 		shader.SetMat4(name, mat);
-		//shader.unbind();
 	}
 
 	void update_shaders(const std::string& name, float value)
 	{
-		//shader.bind();
 		shader.SetFloat(name, value);
-		//shader.unbind();
 	}
 
 	void update_shaders(const std::string& name, glm::vec3 vec)
 	{
-		//shader.bind();
 		shader.SetVec3(name, vec);
-		//shader.unbind();
 	}
 	
 	Surface get_surface() const
